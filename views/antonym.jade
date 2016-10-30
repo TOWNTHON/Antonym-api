@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  if (message)
+    p #{message}
+  h1 Add Antonym
+    form(action='/antonyms', method='post')
+      input(type='text', name="phrase", placeholder="phrase")
+      br
+      input(type='text', name="antonym", placeholder="antonym")
+      br
+      input(type='text', name="position", placeholder="position")
+      br
+      input(type='submit', value='登録')
+
+  h2 Antonym List
+    p ワード数: #{antonyms.length}
+      table
+        tr
+          th phrase
+          th antonym
+          th position
+          th
+        if(antonyms.length > 0)
+          each antonym in antonyms
+            tr
+              td #{antonym.phrase}
+              td #{antonym.antonym}
+              td #{antonym.position}
+              td
+                a(href="/deleteAntonym/#{antonym.id}") Delete

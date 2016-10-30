@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var antonyms = require('./routes/antonyms');
+var deleteAntonym = require('./routes/deleteAntonym');
+var apiAntonyms = require('./routes/api/antonyms');
+
 
 var app = express();
 
@@ -23,7 +26,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', routes);
-app.use('/api/antonyms', antonyms);
+app.use('/antonyms', antonyms);
+app.use('/deleteAntonym', deleteAntonym);
+app.use('/api/antonyms', apiAntonyms);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
