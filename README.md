@@ -1,7 +1,7 @@
 # 対義語変換API 
 
 ## ドメイン
-http://townantonym.herokuapp.com
+http://antonym.herokuapp.com
 
 ## API
 - post /api/antonyms/?phrase=""
