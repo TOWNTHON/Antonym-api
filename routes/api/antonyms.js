@@ -11,11 +11,9 @@ router.get('/', function(req, res, next) {
     }
     var phrase = req.query.phrase;
     var antonym = '';
-    if(table.length > 0) {
-      var replacer = function(c) { return table[c]; }
-      var needle = new RegExp('(' + Object.keys(table).join('|') + ')', 'g');
-      antonym = phrase.replace(needle, replacer);
-    }
+    var replacer = function(c) { return table[c]; }
+    var needle = new RegExp('(' + Object.keys(table).join('|') + ')', 'g');
+    if(table) antonym = phrase.replace(needle, replacer);
 
     var output = {
       phrases: [{
